@@ -4,7 +4,7 @@ import React, { Component } from 'react';
      constructor (props){
          super (props);
          this.state = {
-             clickAge :props.age
+             clickAge : props.age
          }
      }
 
