@@ -1,0 +1,9 @@
+1) https://pokeapi.co/api/v2/pokemon/1 // to find the first pokemno
+
+2)https://pokeapi.co/api/v2/pokemon/20
+
+3)https://pokeapi.co/api/v2/pokemon/22
+
+4)https://pokeapi.co/api/v2/pokemon/70
+
+5) https://pokeapi.co/api/v2/pokemon/100

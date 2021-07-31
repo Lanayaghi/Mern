@@ -1,0 +1,40 @@
+first cd to the path of mongo, then open terminal, to connect to mongo use this command : mongo, 
+then you can see your data by writting this command :show dbs,
+then : use your databaseNameHere,
+1)use my_first_db. 
+
+2) show collections.// i have only one collection which i created using mongo.
+
+3) db.students.insert({name: "lana", state: "arizona", luck_number:"9", birthday: {month: "9", day: "20", year: "1998"}}). // first student added and other 4 students, nowwe have 5 students.
+
+4)  db.students.find({}). // to get all 5 students.
+
+5) db.students.find({state:"california"}). to retrive all students with the state "california".
+
+6)  db.students.find({luck_number: {$gt:2}}). // to get all students whos lucky numebr is grater than 2.
+
+7) db.students.find({luck_number: {$lte:10}}). // all students whos luckynumber less than or equal to 10.
+
+8) db.students.find({luck_number:{$lte: 9},{$gte:2}}). // to get all students whos lucky number between 2 and 9.
+
+9) db.students.updateMany({},{$set:{'interests':['coding','branch','mogodb']}}).// to add an arry of interests for each student.
+
+10) db.students.updateMany({},{$addToSet:{intrests:'drawing'}}). // add some unique interest for each particular student into each of their interest arrys.
+
+11) db.students.updateMany({name:'lana'},{$addToSet:{interests:'frontend'}}). // add the interest 'frontend' into somenones interest arry.
+
+12) db.students.update({name:'lana'},{$pull:{intrests:'frontend'}}).// remove the interest i just added.
+
+
+13) db.students.remove({state:'texsas'}). // remove all students with the state 'texsas'.
+
+14)db.students.remove({luck_number:{$gt:5}},true). // remove students whith the lucky number greaterthan 5.
+15)db.students.updateMany({},{$set:{'number_of_belts':0}}).// Add a field to each student collection called 'number_of_belts' and set it to 0.
+
+16) db.students.updateMany({home_state:'texsas'},{$inc:{'number_of_belts':2}}). //ncrement this field by 1 for all students in Washington (taxes).
+
+17) db.students.updateMany({},{$rename:{'number_of_belts':'belts'}}).// Rename the 'number_of_belts' field to 'belts'
+
+18) db.students.update({},{$unset:{luck_number:2}}).//Remove the 'lucky_number' field.
+
+ 
