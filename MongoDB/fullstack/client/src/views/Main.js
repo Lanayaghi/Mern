@@ -1,10 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import ProductForm from '../components/ProductForm';
-export default () => {
+import ProductList from '../components/ProductList';
+import axios from 'axios';
+import { Link } from '@reach/router';
+
+
+
+    export default () => {
+        const [products, setProducts] = useState([]);
+        const [loaded, setLoaded] = useState(false);
+       
+        useEffect(()=>{
+            axios.get('http://localhost:8000/api/products')
+                .then(res=>{
+                    setProducts(res.data);
+                    setLoaded(true);
+                });
+        },[])
+    
     return (
         <div>
-           <ProductForm/>
+        <ProductForm/>
+        <hr/>
+        <Link to={'/products/:id'}>{loaded && <ProductList products={products}/>}</Link>
+
         </div>
     )
 }
+
 
