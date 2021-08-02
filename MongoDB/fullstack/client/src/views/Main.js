@@ -9,7 +9,8 @@ import { Link } from '@reach/router';
     export default () => {
         const [products, setProducts] = useState([]);
         const [loaded, setLoaded] = useState(false);
-       
+    
+    
         useEffect(()=>{
             axios.get('http://localhost:8000/api/products')
                 .then(res=>{
@@ -18,13 +19,18 @@ import { Link } from '@reach/router';
                 });
         },[])
     
+        const removeFromDom = productId => {
+            setProducts(products.filter(product => product._id !== productId));
+        }
     return (
+        
         <div>
         <ProductForm/>
         <hr/>
-        <Link to={'/products/:id'}>{loaded && <ProductList products={products}/>}</Link>
+        {loaded && <ProductList products={products} removeFromDom ={removeFromDom}/>}
 
         </div>
+        
     )
 }
 
