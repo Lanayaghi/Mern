@@ -33,7 +33,11 @@ const handelStatus = (index) => {
   };
 
   obj.status = !obj.status;
+  console.log(obj)
+  console.log(todos)
 
+const arrBeforeIndex = [...todos.slice(index + 1)]
+console.log(arrBeforeIndex)
   setTodos([
     ...todos.slice(0, index),
     obj

@@ -1,36 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
 import {Router} from "@reach/router";
-import Home from "./components/Home";
-// import Category from './components/Category';
-import {useState, useEffect} from 'react';
+import People from './components/People';
+import Planet from './components/Planet';
+import Search from './components/Search';
+
+
+
 
 
 function App() {
-  const [search, setSearch] = useState({
-    category : "people",
-    id: ""
-  })
 
-  const changeHandeler = event => {
-    setSearch({
-      ...search,
-      [event.target.name]: event.target.value
-    })
-  }
-    const submitHandeler = event => {
-      event.preventDefault();
-      
-    }
   
   return (
-    <div className="App">
-    
-      <Home  search= {search}  changeHandeler = {changeHandeler}  submitHandeler = {submitHandeler} />
-      {/* <Category path = "/:name/:id"/> */}
+  <div className = "App">
+      <Search/>
+        <Router>
+        <People path="/people/:id" />
+        <Planet path="/planets/:id" />
       
-    
-    </div>
+      </Router>
+  </div>
   );
 }
 
