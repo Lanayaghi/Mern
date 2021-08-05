@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import { Link} from '@reach/router';
 import DeleteButton from './DeleteButton';
+import {Card}from '@material-ui/core';
+
 const ProductList = (props) => {
     const [products,setProducts] = useState([]);
     
@@ -20,10 +22,17 @@ const ProductList = (props) => {
         <div>
             {props.products.map((product, idx)=>{
 
-                return ( <p key={idx}><Link to = {"/products/"+ product._id}>{product.title}, {product.price}, {product.description}</Link>
+                return ( 
+                    <Card>
+                <p key={idx}><Link to = {"/products/"+ product._id}>{product.title}, {product.price}, {product.description}</Link>
+                
+                    
+                    
 
-            
-                        <DeleteButton productId={product._id} successCallback={()=>removeFromDom(product._id)}  /></p>
+                        <br/>
+                    <DeleteButton productId={product._id} successCallback={()=>removeFromDom(product._id)}  /> 
+                    </p>
+                    </Card>
                 )
 
             })}
